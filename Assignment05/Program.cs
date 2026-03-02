@@ -15,7 +15,7 @@ namespace Assignment05
             //    isParsed = Enum.TryParse<DayOfWeek>(Console.ReadLine(), true, out Day);
 
             //} while (!isParsed | !Enum.IsDefined(Day));
-            
+
             //Console.WriteLine($"Day : {Day}");
             //bool isWeekend = false;
             //if(Day == DayOfWeek.Friday || Day == DayOfWeek.Saturday)
@@ -36,51 +36,61 @@ namespace Assignment05
 
             #endregion
 
-            #region Question02
-            bool isParsed;
-            double num1;
-            double num2;
-            char operation;
-            double result = 0;
-            do
-            {
-                Console.Write("Enter the first number : ");
-                isParsed = double.TryParse(Console.ReadLine(), out num1);
-               
-            } while (!isParsed);
-            do
-            {
-                Console.Write("Enter the second number : ");
-                isParsed = double.TryParse(Console.ReadLine(), out num2);
+            #region Question03
+            //bool isParsed;
+            //double num1;
+            //double num2;
+            //char operation;
+            //double result = 0;
+            //do
+            //{
+            //    Console.Write("Enter the first number : ");
+            //    isParsed = double.TryParse(Console.ReadLine(), out num1);
 
-            } while (!isParsed);
-            do
-            {
-                Console.Write("Enter the operation you need : ");
-                isParsed = char.TryParse(Console.ReadLine(), out operation);
-            } while (!isParsed || !(operation == '+' || operation == '-'  || operation == '*' || operation == '/'));
-            switch(operation)
-            {
-                case '+':
-                    result = Add(num1, num2);
-                    break;
-                case '-':
-                    result = Subtract(num1, num2);
-                    break;
-                case '*':
-                    result = Multiply(num1, num2);
-                    break;
-                case '/':
-                    if (num2 == 0) { 
-                        Console.WriteLine("can not divide by zero");
-                        return;
-                    } 
-                    result = Divide(num1, num2);
-                    break;
-            }
-            Console.WriteLine($"Result of {operation} of {num1} & {num2} is = {result}");
+            //} while (!isParsed);
+            //do
+            //{
+            //    Console.Write("Enter the second number : ");
+            //    isParsed = double.TryParse(Console.ReadLine(), out num2);
 
-            #endregion 
+            //} while (!isParsed);
+            //do
+            //{
+            //    Console.Write("Enter the operation you need : ");
+            //    isParsed = char.TryParse(Console.ReadLine(), out operation);
+            //} while (!isParsed || !(operation == '+' || operation == '-'  || operation == '*' || operation == '/'));
+            //switch(operation)
+            //{
+            //    case '+':
+            //        result = Add(num1, num2);
+            //        break;
+            //    case '-':
+            //        result = Subtract(num1, num2);
+            //        break;
+            //    case '*':
+            //        result = Multiply(num1, num2);
+            //        break;
+            //    case '/':
+            //        if (num2 == 0) { 
+            //            Console.WriteLine("can not divide by zero");
+            //            return;
+            //        } 
+            //        result = Divide(num1, num2);
+            //        break;
+            //}
+            //Console.WriteLine($"Result of {operation} of {num1} & {num2} is = {result}");
+
+            #endregion
+
+            #region Question03 b
+            //double area;
+            //double circumference;
+            //CalculateCircle(8.5,out circumference,out area);
+            //Console.WriteLine($"Area of circle = {area}");
+            //Console.WriteLine($"Area of circle = {circumference}");
+            #endregion
+
+
 
         }
         static double Add(double x, double y)
@@ -98,6 +108,11 @@ namespace Assignment05
         static double Divide(double x, double y)
         {
             return x / y;
+        }
+        static void CalculateCircle(double radius , out double circumference, out double area)
+        {
+            circumference = 2 * 3.14 * radius;
+            area = 3.14 * (radius * radius);
         }
     }
 }
