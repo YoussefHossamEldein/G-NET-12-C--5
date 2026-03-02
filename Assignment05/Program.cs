@@ -36,6 +36,36 @@ namespace Assignment05
 
             #endregion
 
+            #region Question02
+            int size;
+            bool isParsed;
+            int[] array01;
+            Console.Write("Enter size of array of integers : ");
+            isParsed = int.TryParse(Console.ReadLine(), out size);
+            if (isParsed)
+            {
+                 array01 = new int[size];
+                Console.WriteLine("Enter array elements : ");
+                for(int i = 0; i < array01.Length; i++)
+                {
+                isParsed =  int.TryParse(Console.ReadLine(), out int element);
+                    if(isParsed)
+                    {
+                        array01[i] = element;
+                    }
+                }
+                for (int i = 0; i < array01.Length; i++)
+                {
+                    Console.WriteLine($"array01[{i}] = {array01[i]}");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Please enter a valid size");
+            }
+          
+            #endregion
+
             #region Question03
             //bool isParsed;
             //double num1;
