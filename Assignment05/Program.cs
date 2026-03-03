@@ -139,7 +139,7 @@ namespace Assignment05
             //Console.WriteLine($"Area of circle = {circumference}");
             #endregion
 
-            #region Question04
+            #region Question04 (Student Grade Manager)
             int[] Scores = new int[5];
             bool isParsed;
             Console.WriteLine("Enter 5 student scores : ");
