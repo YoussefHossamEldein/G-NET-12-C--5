@@ -37,52 +37,52 @@ namespace Assignment05
             #endregion
 
             #region Question02
-            int size;
-            bool isParsed;
-            int[] array01;
-            Console.Write("Enter size of array of integers : ");
-            isParsed = int.TryParse(Console.ReadLine(), out size);
-            if (isParsed)
-            {
-                 array01 = new int[size];
-                Console.WriteLine("Enter array elements : ");
-                for(int i = 0; i < array01.Length; i++)
-                {
-                isParsed =  int.TryParse(Console.ReadLine(), out int element);
-                    if(isParsed)
-                    {
-                        array01[i] = element;
-                    }
-                }
-                for (int i = 0; i < array01.Length; i++)
-                {
-                    Console.WriteLine($"array01[{i}] = {array01[i]}");
-                }
-                int max = array01[0];
-                int min = array01[0];
-                int sum = 0;
-                for (int i = 0; i < array01.Length; i++)
-                {
-                    if (array01[i] > max)
-                    {
-                        max = array01[i];
-                    }
-                    if (array01[i] < min)
-                    {
-                        min = array01[i];
-                    }
-                    sum += array01[i];
-                }
-                Console.WriteLine($"Sum of array elements = {sum}");
-                Console.WriteLine($"Avg of array elements = {sum / array01.Length}");
-                Console.WriteLine($"max of array elements = {max}");
-                Console.WriteLine($"min of array elements = {min}");
-            }
-            else
-            {
-                Console.WriteLine("Please enter a valid size");
-            }
-          
+            //int size;
+            //bool isParsed;
+            //int[] array01;
+            //Console.Write("Enter size of array of integers : ");
+            //isParsed = int.TryParse(Console.ReadLine(), out size);
+            //if (isParsed)
+            //{
+            //     array01 = new int[size];
+            //    Console.WriteLine("Enter array elements : ");
+            //    for(int i = 0; i < array01.Length; i++)
+            //    {
+            //    isParsed =  int.TryParse(Console.ReadLine(), out int element);
+            //        if(isParsed)
+            //        {
+            //            array01[i] = element;
+            //        }
+            //    }
+            //    for (int i = 0; i < array01.Length; i++)
+            //    {
+            //        Console.WriteLine($"array01[{i}] = {array01[i]}");
+            //    }
+            //    int max = array01[0];
+            //    int min = array01[0];
+            //    int sum = 0;
+            //    for (int i = 0; i < array01.Length; i++)
+            //    {
+            //        if (array01[i] > max)
+            //        {
+            //            max = array01[i];
+            //        }
+            //        if (array01[i] < min)
+            //        {
+            //            min = array01[i];
+            //        }
+            //        sum += array01[i];
+            //    }
+            //    Console.WriteLine($"Sum of array elements = {sum}");
+            //    Console.WriteLine($"Avg of array elements = {sum / array01.Length}");
+            //    Console.WriteLine($"max of array elements = {max}");
+            //    Console.WriteLine($"min of array elements = {min}");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Please enter a valid size");
+            //}
+
             #endregion
 
             #region Question03
@@ -139,6 +139,38 @@ namespace Assignment05
             //Console.WriteLine($"Area of circle = {circumference}");
             #endregion
 
+            #region Question04
+            int[] Scores = new int[5];
+            bool isParsed;
+            Console.WriteLine("Enter 5 student scores : ");
+            for (int i = 1; i < Scores.Length; i++)
+            {
+                do
+                {
+                    Console.Write($"Enter score {i} of 5 : ");
+                    isParsed = int.TryParse(Console.ReadLine(), out Scores[i]);
+                } while (!isParsed);
+            }
+            Grade stdGrade;
+            for(int i = 1; i < Scores.Length; i++)
+            {
+                stdGrade = GetGrade(Scores[i]);
+                Console.WriteLine($"Student {i}: {Scores[i]} -> Grade: {stdGrade}");
+            }
+            int max;
+            int min;
+            int sum = 0;
+            double averageScore;
+            foreach(var item in Scores)
+            {
+                sum += item;
+
+            }
+            averageScore = sum / Scores.Length;
+            GetMinMax(Scores, out max, out min);
+            Console.WriteLine($"Average: {averageScore}");
+            Console.WriteLine($"Highest Score: {max}");
+            #endregion
 
 
         }
@@ -162,6 +194,45 @@ namespace Assignment05
         {
             circumference = 2 * 3.14 * radius;
             area = 3.14 * (radius * radius);
+        }
+        static Grade GetGrade(int score)
+        {
+            Grade StdGrade = 0;
+           
+                if (score >= 90)
+                {
+                    StdGrade = Grade.A;
+                }else if (score >= 80)
+                {
+                    StdGrade = Grade.B;
+                }else if (score >= 70)
+                {
+                    StdGrade = Grade.C;
+                }else if (score >= 60)
+                {
+                    StdGrade = Grade.D;
+                }else
+                {
+                    StdGrade = Grade.F;
+                }
+           
+            return StdGrade;
+        }
+        static void GetMinMax(int[] score,out int max,out int min)
+        {
+            max = score[0];
+            min = score[0];
+            for(int i  = 0; i < score.Length; i++)
+            {
+                if (score[i] > max)
+                {
+                    max = score[i];
+                }
+                if (score[i] < min)
+                {
+                    min = score[i];
+                }
+            } 
         }
     }
 }
