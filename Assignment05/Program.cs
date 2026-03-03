@@ -58,6 +58,25 @@ namespace Assignment05
                 {
                     Console.WriteLine($"array01[{i}] = {array01[i]}");
                 }
+                int max = array01[0];
+                int min = array01[0];
+                int sum = 0;
+                for (int i = 0; i < array01.Length; i++)
+                {
+                    if (array01[i] > max)
+                    {
+                        max = array01[i];
+                    }
+                    if (array01[i] < min)
+                    {
+                        min = array01[i];
+                    }
+                    sum += array01[i];
+                }
+                Console.WriteLine($"Sum of array elements = {sum}");
+                Console.WriteLine($"Avg of array elements = {sum / array01.Length}");
+                Console.WriteLine($"max of array elements = {max}");
+                Console.WriteLine($"min of array elements = {min}");
             }
             else
             {
